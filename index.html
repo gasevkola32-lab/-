@@ -17,10 +17,12 @@
             --primary-blue: #0044cc; /* Яркий ультрамарин */
             --accent-red: #e62117;   /* Сочный алый */
             --warm-orange: #ff9100;  /* Солнечно-оранжевый */
+            --purple: #7b1fa2;       /* Пурпурный */
+            --gold: #d4af37;         /* Благородный золотой */
+            --forest-green: #2e7d32;  /* Природный зеленый */
+            --royal-blue: #1a237e;    /* Королевский синий */
             --dark: #1a1a1a;
             --canvas-light: #fbf9f5; /* Цвет художественного холста */
-            --gold: #d4af37;         /* Золотой для иконописи */
-            --forest-green: #2e7d32; /* Зеленый для пленэра */
         }
 
         body {
@@ -99,13 +101,17 @@
 
         /* Главный баннер (Hero) */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.45)), url('https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?q=80&w=1200&auto=format&fit=crop') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.45)), url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1200&auto=format&fit=crop') no-repeat center center/cover;
             height: 100vh;
             display: flex;
             align-items: center;
             color: #ffffff;
             text-align: center;
             padding-top: 80px;
+        }
+
+        .hero-content {
+            width: 100%;
         }
 
         .hero-content h1 {
@@ -136,8 +142,6 @@
             letter-spacing: 1px;
             box-shadow: 0 4px 15px rgba(230, 33, 23, 0.4);
             transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            cursor: pointer;
         }
 
         .btn:hover {
@@ -200,12 +204,18 @@
             color: var(--dark);
         }
 
+        .course-info p {
+            color: #555555;
+            font-size: 15px;
+        }
+
         .course-card:nth-child(1) { border-top: 5px solid var(--accent-red); }
         .course-card:nth-child(2) { border-top: 5px solid var(--primary-blue); }
         .course-card:nth-child(3) { border-top: 5px solid var(--warm-orange); }
-        .course-card:nth-child(4) { border-top: 5px solid #7b1fa2; }
+        .course-card:nth-child(4) { border-top: 5px solid var(--purple); }
         .course-card.iconography { border-top: 5px solid var(--gold); }
         .course-card.plein-air { border-top: 5px solid var(--forest-green); }
+        .course-card.exam-prep { border-top: 5px solid var(--royal-blue); }
 
         /* О нас */
         .about-content {
@@ -229,54 +239,81 @@
             background-color: #ffffff;
             border-radius: 16px;
             padding: 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            max-width: 600px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            max-width: 700px;
             margin: 0 auto;
         }
 
+        .contacts form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
         .form-group {
-            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
         .form-group label {
-            display: block;
-            margin-bottom: 8px;
             font-weight: 600;
+            font-size: 15px;
             color: var(--dark);
         }
 
         .form-group input, .form-group select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ccc;
+            padding: 12px 16px;
+            border: 1px solid #cccccc;
             border-radius: 8px;
             font-size: 16px;
+            outline: none;
             transition: border-color 0.3s;
         }
 
         .form-group input:focus, .form-group select:focus {
             border-color: var(--primary-blue);
-            outline: none;
         }
 
-        .form-btn-container {
+        .submit-btn {
+            background: linear-gradient(135deg, var(--accent-red) 0%, var(--warm-orange) 100%);
+            color: #ffffff;
+            padding: 16px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 15px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(230, 33, 23, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
             text-align: center;
-            margin-top: 30px;
         }
 
-        /* Футер */
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230, 33, 23, 0.6);
+        }
+
+        /* Подвал сайта */
         footer {
             background-color: var(--dark);
             color: #ffffff;
             text-align: center;
-            padding: 30px 0;
-            margin-top: 60px;
+            padding: 40px 0;
+            margin-top: 100px;
+        }
+
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
 
-    <!-- Шапка сайта -->
+    <!-- Шапка -->
     <header>
         <div class="container nav-container">
             <div class="logo">Золотое <span>сечение</span></div>
@@ -284,14 +321,14 @@
                 <ul>
                     <li><a href="#hero">Главная</a></li>
                     <li><a href="#courses">Курсы</a></li>
-                    <li><a href="#about">О школе</a></li>
-                    <li><a href="#register">Записаться</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#register">Запись</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Главный баннер (Hero) -->
+    <!-- Баннер -->
     <section id="hero" class="hero">
         <div class="container hero-content">
             <h1>Раскройте свой творческий потенциал</h1>
@@ -300,7 +337,7 @@
         </div>
     </section>
 
-    <!-- Направления обучения -->
+    <!-- Курсы -->
     <section id="courses">
         <div class="container">
             <h2 class="section-title">Направления обучения</h2>
@@ -308,39 +345,43 @@
                 <div class="course-card">
                     <div class="course-info">
                         <h3>Живопись</h3>
-                        <p>Освойте работу маслом, акрилом и гуашью. Разберитесь в колористике и композиции.</p>
+                        <p>Изучение колористики, работы с маслом, акрилом и акварелью. Развитие чувства цвета и объема.</p>
                     </div>
                 </div>
                 <div class="course-card">
                     <div class="course-info">
-                        <h3>Академический рисунок</h3>
-                        <p>База для любого художника. Форма, объем, перспектива и светотень.</p>
+                        <h3>Рисунок</h3>
+                        <p>Основы графики, академический рисунок, построение перспективы и работа со светотенью.</p>
                     </div>
                 </div>
                 <div class="course-card">
                     <div class="course-info">
-                        <h3>Акварель</h3>
-                        <p>Легкость, прозрачность и управление водной стихией на бумаге.</p>
+                        <h3>Композиция</h3>
+                        <p>Законы распределения визуальных масс, построение гармоничного кадра и сюжетные основы.</p>
                     </div>
                 </div>
                 <div class="course-card">
                     <div class="course-info">
-                        <h3>Графика и скетчинг</h3>
-                        <p>Быстрые зарисовки, работа лайнерами, маркерами и мягкими материалами.</p>
+                        <h3>Скульптура</h3>
+                        <p>Работа с объемом и пластическими материалами. Изучение анатомии и трехмерной формы.</p>
                     </div>
                 </div>
-                <!-- Новая категория: Иконопись -->
                 <div class="course-card iconography">
                     <div class="course-info">
                         <h3>Иконопись</h3>
-                        <p>Изучение древних канонов, подготовка доски, яичная темпера и сусальное золочение.</p>
+                        <p>Традиционные каноны, яичная темпера, золочение левкаса и глубокое погружение в сакральное искусство.</p>
                     </div>
                 </div>
-                <!-- Новая категория: Пленэр на воздухе -->
                 <div class="course-card plein-air">
                     <div class="course-info">
                         <h3>Пленэр на воздухе</h3>
-                        <p>Живые сессии на природе. Учимся ловить переменчивый свет и естественные состояния природы.</p>
+                        <p>Живые сессии под открытым небом, передача естественного освещения, пейзажи и быстрая интерьерная зарисовка.</p>
+                    </div>
+                </div>
+                <div class="course-card exam-prep">
+                    <div class="course-info">
+                        <h3>Подготовка к поступлению</h3>
+                        <p>Интенсивная подготовка абитуриентов в художественные вузы и колледжи. Портфолио, рисунок головы, натюрморт.</p>
                     </div>
                 </div>
             </div>
@@ -348,45 +389,44 @@
     </section>
 
     <!-- О нас -->
-    <section id="about" style="background-color: #ffffff;">
+    <section id="about">
         <div class="container about-content">
             <div class="about-text">
-                <h2 class="section-title" style="text-align: left; margin-bottom: 30px;">О нашей школе</h2>
-                <p>Школа «Золотое сечение» — это пространство, где академические традиции переплетаются с современными методиками обучения. Мы верим, что научиться рисовать может каждый, главное — чуткое руководство и правильная система.</p>
-                <p>Наши преподаватели — практикующие художники и выпускники ведущих творческих вузов, готовые делиться секретами мастерства.</p>
+                <h2 class="section-title" style="text-align: left; margin-bottom: 30px; padding-left: 0;">О нашей школе</h2>
+                <p>Школа «Золотое сечение» — это пространство, где академические традиции переплетаются с современными методиками преподавания. Мы помогаем как новичкам сделать первые уверенные шаги в искусстве, так и профессионалам отточить свое мастерство.</p>
+                <p>Наши преподаватели — практикующие художники и члены союза художников, готовые поделиться уникальным опытом и направить ваш талант в нужное русло.</p>
             </div>
         </div>
     </section>
 
-    <!-- Форма записи -->
+    <!-- Запись -->
     <section id="register">
         <div class="container">
-            <h2 class="section-title">Запись на занятие</h2>
+            <h2 class="section-title">Запись на пробный урок</h2>
             <div class="contacts">
-                <form action="#" method="POST">
+                <form action="#">
                     <div class="form-group">
                         <label for="name">Ваше имя</label>
-                        <input type="text" id="name" name="name" placeholder="Иван Иванов" required>
+                        <input type="text" id="name" placeholder="Иван Иванов" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Номер телефона</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+7 (999) 000-00-00" required>
+                        <input type="tel" id="phone" placeholder="+7 (999) 000-00-00" required>
                     </div>
                     <div class="form-group">
                         <label for="course">Выберите направление</label>
-                        <select id="course" name="course" required>
-                            <option value="" disabled selected>-- Выберите курс --</option>
+                        <select id="course" required>
+                            <option value="" disabled selected>Выберите курс из списка...</option>
                             <option value="painting">Живопись</option>
-                            <option value="drawing">Академический рисунок</option>
-                            <option value="watercolor">Акварель</option>
-                            <option value="sketching">Графика и скетчинг</option>
+                            <option value="drawing">Рисунок</option>
+                            <option value="composition">Композиция</option>
+                            <option value="sculpture">Скульптура</option>
                             <option value="iconography">Иконопись</option>
                             <option value="plein-air">Пленэр на воздухе</option>
+                            <option value="exam-prep">Подготовка к поступлению</option>
                         </select>
                     </div>
-                    <div class="form-btn-container">
-                        <button type="submit" class="btn">Записаться</button>
-                    </div>
+                    <button type="submit" class="submit-btn">Записаться</button>
                 </form>
             </div>
         </div>
