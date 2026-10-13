@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Школа рисования «Золотое сечение»</title>
+    <meta name="google-site-verification" content="googlefafd7d51c6fd96af" />
+    <meta name="description" content="Профессиональное обучение живописи, рисунку, скетчингу и иконописи для любого уровня подготовки в Новороссийске.">
+    
+    <!-- Микроразметка Open Graph для соцсетей, мессенджеров и поисковиков -->
+    <meta property="og:title" content="Школа рисования «Золотое сечение» в Новороссийске">
+    <meta property="og:description" content="Профессиональное обучение живописи, рисунку, скетчингу и иконописи для любого уровня подготовки.">
+    <meta property="og:image" content="https://ваш-сайт.ru/17099.jpg">
+    <meta property="og:type" content="website">
+
+    <!-- Иконка сайта (фавикон) -->
+    <link rel="icon" href="17099.jpg" type="image/jpeg">
+
+    <style>
+        /* Общие стили и обнуление */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-blue: #0044cc; /* Яркий ультрамарин */
+            --accent-red: #e62117;   /* Сочный алый */
+            --warm-orange: #ff9100;  /* Солнечно-оранжевый */
+            --gold: #d4af37;         /* Золотой для иконописи */
+            --forest-green: #2e7d32; /* Зеленый для пленэра */
+            --royal-blue: #1a237e;   /* Синий для подготовки */
+            --dark: #1a1a1a;
+            --canvas-light: #fbf9f5; /* Цвет художественного холста */
+        }
+
+        body {
+            background-color: var(--canvas-light);
+            color: var(--dark);
+            line-height: 1.6;
+            padding-top: 80px; /* Отступ для фиксированной шапки */
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Шапка сайта */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-red);
+            position: relative;
+        }
+
+        .logo span::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--warm-orange);
+            border-radius: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Обложка сайта (Секция Cover) */
+        .site-cover {
+            background-color: #fbf9f5;
+            background-image: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+            padding: 50px 0 30px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .cover-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .cover-image-wrapper {
+            width: 100%;
+            max-width: 650px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            background: #ffffff;
+        }
+
+        .cover-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Главный баннер (Hero) */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.45)), url('https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?q=80&w=1920') no-repeat center center/cover;
+            height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .hero-content {
+            width: 100%;
+        }
+
+        .hero-content h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .hero-content p {
+            font-size: 22px;
+            margin-bottom: 40px;
+            font-weight: 300;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-red) 0%, var(--warm-orange) 100%);
+            color: #ffffff;
+            padding: 16px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(230, 33, 23, 0.4);
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230, 33, 23, 0.6);
+        }
+
+        /* Секции */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 60px;
+            position: relative;
+            font-weight: 800;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-red), var(--warm-orange));
+            margin: 15px auto 0;
+            border-radius: 10px;
+        }
+
+        /* Направления обучения */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 44, 204, 0.1);
+        }
+
+        .course-info {
+            padding: 30px;
+        }
+
+        .course-info h3 {
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        /* Цветовые маркеры для курсов */
+        .course-card:nth-child(1) { border-top: 5px solid var(--accent-red); }
+        .course-card:nth-child(2) { border-top: 5px solid var(--primary-blue); }
+        .course-card:nth-child(3) { border-top: 5px solid var(--warm-orange); }
+        .course-card.iconography { border-top: 5px solid var(--gold); }
+        .course-card.plein-air { border-top: 5px solid var(--forest-green); }
+        .course-card.preparation { border-top: 5px solid var(--royal-blue); }
+
+        /* О нас и Контакты */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #4a4a4a;
+        }
+
+        .about-contacts {
+            background: #fdfcf9;
+            border-left: 4px solid var(--primary-blue);
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            margin-top: 10px;
+        }
+
+        .about-contacts h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .about-contacts p {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .about-contacts a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Форма записи и контакты */
+        .contacts {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 14px 20px;
+            border: 2px solid #e1e1e1;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--primary-blue);
+        }
+
+        .contacts .btn {
+            width: 100%;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Футер */
+        footer {
+            background-color: var(--dark);
+            color: #ffffff;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 100px;
+        }
+        
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">Школа <span>Рисования</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#courses">Курсы</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#enroll">Записаться</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Обложка сайта -->
+    <section class="site-cover">
+        <div class="cover-container">
+            <div class="cover-image-wrapper">
+                <img src="17099.jpg" alt="Школа рисования Золотое сечение — Гармония, Пропорции, Единство">
+            </div>
+        </div>
+    </section>
+
+    <!-- Главный баннер -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Раскройте свой творческий потенциал</h1>
+            <p>Профессиональное обучение живописи и рисунку для любого уровня подготовки</p>
+            <a href="#enroll" class="btn">Начать учиться</a>
+        </div>
+    </section>
+
+    <!-- Направления обучения -->
+    <section id="courses">
+        <div class="container">
+            <h2 class="section-title">Наши направления</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-info">
+                        <h3>Живопись</h3>
+                        <p>Основы работы маслом, акварелью и акрилом. Развитие цветового восприятия.</p>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-info">
+                        <h3>Академический рисунок</h3>
+                        <p>Постановка руки, изучение перспективы, светотени и анатомии.</p>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-info">
+                        <h3>Скетчинг</h3>
+                        <p>Быстрые зарисовки маркерами и линерами. Идеально для ведения арт-дневников.</p>
+                    </div>
+                </div>
+                <div class="course-card iconography">
+                    <div class="course-info">
+                        <h3>Иконопись</h3>
+                        <p>Изучение древних канонов, технологии приготовления темперы и золочения.</p>
+                    </div>
+                </div>
+                <div class="course-card plein-air">
+                    <div class="course-info">
+                        <h3>Пленэр</h3>
+                        <p>Выездные занятия на открытом воздухе. Учимся ловить момент и естественный свет.</p>
+                    </div>
+                </div>
+                <div class="course-card preparation">
+                    <div class="course-info">
+                        <h3>Подготовка в вузы</h3>
+                        <p>Интенсивная программа для поступающих в художественные академии и институты.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container about-content">
+            <h2 class="section-title">О нашей школе</h2>
+            <div class="about-text">
+                <p>Школа «Золотое сечение» — это пространство, где классические традиции академического образования встречаются с современными методиками обучения.</p>
+                <div class="about-contacts">
+                    <h4>Наши контакты:</h4>
+                    <p>Телефон: <a href="tel:+79881355043">+7 (988) 135 50 43</a></p>
+                    <p>Email: <a href="mailto:elizavetaartistshulga@gmail.com">elizavetaartistshulga@gmail.com</a></p>
+                    <p>Адрес: ул. Алексеева 22</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="enroll">
+        <div class="container">
+            <h2 class="section-title">Записаться на занятие</h2>
+            <div class="contacts">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" required placeholder="Фамилия Имя">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" required placeholder="+7 (999) 123-45-67">
+                    </div>
+                    <div class="form-group">
+                        <label for="course">Выберите курс</label>
+                        <select id="course">
+                            <option value="painting">Живопись</option>
+                            <option value="drawing">Академический рисунок</option>
+                            <option value="sketching">Скетчинг</option>
+                            <option value="icon">Иконопись</option>
+                            <option value="plein-air">Пленэр</option>
+                            <option value="prep">Подготовка в вузы</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Школа рисования «Золотое сечение». Все права защищены.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
