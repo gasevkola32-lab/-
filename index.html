@@ -206,6 +206,57 @@
             font-weight: 700;
             color: var(--dark);
         }
+        /* Галерея работ */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Строго столбик по умолчанию (для телефонов) */
+            gap: 25px;
+            margin-top: 40px;
+            justify-items: center; /* Центрируем маленькие карточки */
+        }
+
+        .gallery-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.03);
+            text-align: center;
+            width: 100%;
+            max-width: 260px; /* Ограничиваем ширину картинки на телефоне */
+        }
+
+        .gallery-card img {
+            width: 100%;
+            aspect-ratio: 4 / 3; /* Одинаковые ровные пропорции */
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .gallery-card h4 {
+            margin: 12px 0 4px 0;
+            font-size: 16px;
+            color: var(--dark);
+        }
+
+        .gallery-card p {
+            margin: 0;
+            font-size: 13px;
+            color: #777;
+        }
+
+        /* Адаптация галереи для больших экранов компьютеров */
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(4, 1fr); /* 4 в ряд на ПК */
+                justify-items: stretch;
+                gap: 20px;
+            }
+            .gallery-card {
+                max-width: 100%;
+            }
+        }
 
         /* Цветовые маркеры для курсов */
         .course-card:nth-child(1) { border-top: 5px solid var(--accent-red); }
